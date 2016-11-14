@@ -57,20 +57,6 @@ namespace TiagoChess
 						}
 					}
 				} else {
-					for (int i = -1; i < 2; i += 2) {
-						int[] temp2 = new int[2]{posicao [0]+1,posicao [1]+i};
-						bool invalido =false;
-						foreach (int val in temp2){
-							if (val < 0 || val>7) {
-								invalido=true;
-							}
-						}
-						if (invalido)
-							continue;
-						if (tabuleiro [temp2[0], temp2[1]].GetType ().ToString ().Split ('.') [1] != "empty" && tabuleiro [posicao [0] + 1, posicao [1] + i].cor != this.cor) {
-							listjogadas.Add (temp2);
-						}
-					}
 					int[] temp3 =new int[2]{posicao [0]+1, posicao [1]};
 					bool invalido2 =false;
 					foreach (int val in temp3){
@@ -79,10 +65,25 @@ namespace TiagoChess
 						}
 					}
 					if (!(invalido2))
-						if (tabuleiro [temp3[0], temp3[1]].GetType ().ToString ().Split ('.') [1] == "empty") {
-							listjogadas.Add (temp3);
-						}
+					if (tabuleiro [temp3[0], temp3[1]].GetType ().ToString ().Split ('.') [1] == "empty") {
+						listjogadas.Add (temp3);
+					}
 				}
+				for (int i = -1; i < 2; i += 2) {
+					int[] temp2 = new int[2]{posicao [0]+1,posicao [1]+i};
+					bool invalido =false;
+					foreach (int val in temp2){
+						if (val < 0 || val>7) {
+							invalido=true;
+						}
+					}
+					if (invalido)
+						continue;
+					if (tabuleiro [temp2[0], temp2[1]].GetType ().ToString ().Split ('.') [1] != "empty" && tabuleiro [posicao [0] + 1, posicao [1] + i].cor != this.cor) {
+						listjogadas.Add (temp2);
+					}
+				}
+
 			} else {
 				if (posicao [0]+2 == tabuleiro.GetLength(0)) {
 					for (int i = 1; i < 3; i++) {
@@ -95,21 +96,6 @@ namespace TiagoChess
 						}
 					}
 				} else {
-					for (int i = -1; i < 2; i += 2) {
-						int[] temp2 = new int[2]{posicao [0]-1,posicao [1]+i};
-						bool invalido =false;
-						foreach (int val in temp2){
-							if (val < 0 || val>7) {
-								invalido=true;
-							}
-						}
-						if (invalido)
-							continue;
-						if (tabuleiro [temp2[0], temp2[1]].GetType ().ToString ().Split ('.') [1] != "empty" && tabuleiro [posicao [0] + 1, posicao [1]+i].cor!=this.cor) {
-							listjogadas.Add (temp2);
-						}
-
-						}
 					int[] temp3 = new int[2]{ posicao [0]-1, posicao [1] };
 					bool invalido2 =false;
 					foreach (int val in temp3){
@@ -118,12 +104,28 @@ namespace TiagoChess
 						}
 					}
 					if (!(invalido2))
-						if (tabuleiro [temp3[0], temp3[1]].GetType ().ToString ().Split ('.') [1] == "empty") {
-							listjogadas.Add (temp3);
+					if (tabuleiro [temp3[0], temp3[1]].GetType ().ToString ().Split ('.') [1] == "empty") {
+						listjogadas.Add (temp3);
 					}
 				}
+				for (int i = -1; i < 2; i += 2) {
+					int[] temp2 = new int[2]{posicao [0]-1,posicao [1]+i};
+					bool invalido =false;
+					foreach (int val in temp2){
+						if (val < 0 || val>7) {
+							invalido=true;
+						}
+					}
+					if (invalido)
+						continue;
+					if (tabuleiro [temp2[0], temp2[1]].GetType ().ToString ().Split ('.') [1] != "empty" && tabuleiro [posicao [0] + 1, posicao [1]+i].cor!=this.cor) {
+						listjogadas.Add (temp2);
+					}
+
+				}
+
 			}
-					return listjogadas.ToArray();
+			return listjogadas.ToArray();
 				
 		}
 	}
@@ -207,7 +209,7 @@ namespace TiagoChess
 					}
 				}
 			}
-a4			return listjogadas.ToArray();
+			return listjogadas.ToArray();
 		}
 	
 	}
