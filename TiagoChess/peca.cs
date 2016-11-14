@@ -162,7 +162,56 @@ namespace TiagoChess
 			}
 		}
 		public override char simbolo {get{return sim;}}
+	
+		public override int[][] jogadas (peca[,] tabuleiro, int[] posicao){
+			List<int[]> listjogadas = new List<int[]> ();
+			bool[] axis = new bool[] { true, true, true, true, true, true, true, true };
+			Func<int, int>[,] posi = new Func<int, int>[8, 2];
+			posi [0, 0] = (i) => posicao [0] + i;
+			posi [0, 1] = (i) => posicao [1];
+			posi [1, 0] = (i) => posicao [0] - i;
+			posi [1, 1] = (i) => posicao [1];
+			posi [2, 0] = (i) => posicao [0];
+			posi [2, 1] = (i) => posicao [1] + i;
+			posi [3, 0] = (i) => posicao [0];
+			posi [3, 1] = (i) => posicao [1] - i;
+
+			posi [4, 0] = (i) => posicao [0] - i;
+			posi [4, 1] = (i) => posicao [1] - i;;
+			posi [5, 0] = (i) => posicao [0] + i;
+			posi [5, 1] = (i) => posicao [1] - i;;
+			posi [6, 0] = (i) => posicao [0] + i;;
+			posi [6, 1] = (i) => posicao [1] + i;
+			posi [7, 0] = (i) => posicao [0] - i;;
+			posi [7, 1] = (i) => posicao [1] + i;
+
+
+			for (int i = 1; i < 8; i++) {
+				for(int a=0; a<8;a++){
+					if (axis [a]) {
+						if (posi [a, 0].Invoke (i) >= 0 && posi [a, 0].Invoke (i) < 8 && posi [a, 1].Invoke (i) >= 0 && posi [a, 1].Invoke (i) < 8) { 
+							if (tabuleiro [posi [a, 0].Invoke (i), posi [a, 1].Invoke (i)].GetType ().ToString ().Split ('.') [1] == "empty") {
+								int[] temp = new int[2]{ posi [a, 0] (i), posi [a, 1] (i) };
+								listjogadas.Add (temp);
+							} else {
+								if (tabuleiro [posi [a, 0] (i), posi [a, 1] (i)].cor != this.cor) {
+									int[] temp = new int[2]{ posi [a, 0] (i), posi [a, 1] (i) };
+									listjogadas.Add (temp);
+								}
+								axis [a] = false;
+							}
+						} else {
+							axis [a] = false;
+						}
+
+					}
+				}
+			}
+a4			return listjogadas.ToArray();
+		}
+	
 	}
+
 
 	public class torre : peca
 	{
