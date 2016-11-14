@@ -146,6 +146,24 @@ namespace TiagoChess
 			}
 		}
 		public override char simbolo {get{return sim;}}
+
+		public override int[][] jogadas (peca[,] tabuleiro, int[] posicao){
+			List<int[]> listjogadas = new List<int[]> ();
+			for (int l = -1; l < 2; l++) {
+				for (int c = -1; c < 2; c++) {
+					if (posicao[0]+l >= 0 && posicao[0]+l  < 8 && posicao[1]+c >= 0 && posicao[1]+l  < 8 ) { 
+						if (c!=l && tabuleiro[posicao[0]+l,posicao[1]+c].GetType ().ToString ().Split ('.') [1] == "empty" || 
+							tabuleiro[posicao[0]+l,posicao[1]+c].cor != this.cor) {
+							int[] temp = new int[2]{ posicao[0]+l,posicao[1]+c };
+							listjogadas.Add (temp);
+						}
+					}
+				}
+			}
+				return listjogadas.ToArray();
+		}
+					
+
 	}
 
 	public class rainha : peca

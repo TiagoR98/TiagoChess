@@ -165,7 +165,7 @@ namespace TiagoChess
 			Console.WriteLine();
 			Console.WriteLine();
 			Console.WriteLine();
-			Console.WriteLine("Parabéns!!!!!!!!");
+			Console.WriteLine("Cheque-Mate!!!!!!!!");
 			Console.WriteLine();
 			Console.Write("O jogador das peças ");
 			if (jogada){
