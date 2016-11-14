@@ -1,0 +1,5 @@
+/home/tiaguinho/Documentos/TiagoChess/TiagoChess/obj/x86/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/tiaguinho/Documentos/TiagoChess/TiagoChess/bin/Release/TiagoChess.exe.mdb
+/home/tiaguinho/Documentos/TiagoChess/TiagoChess/bin/Release/TiagoChess.exe
+/home/tiaguinho/Documentos/TiagoChess/TiagoChess/obj/x86/Release/TiagoChess.exe
+/home/tiaguinho/Documentos/TiagoChess/TiagoChess/obj/x86/Release/TiagoChess.exe.mdb
