@@ -344,6 +344,35 @@ namespace TiagoChess
 			}
 		}
 		public override char simbolo {get{return sim;}}
+
+		public override int[][] jogadas (peca[,] tabuleiro, int[] posicao){
+			List<int[]> listjogadas = new List<int[]> ();
+			Func<int, int>[,] posi = new Func<int, int>[4, 2];
+			posi [0, 0] = (i) => posicao [0] - 2;
+			posi [0, 1] = (i) => posicao [1] + i;
+			posi [1, 0] = (i) => posicao [0] - 1;
+			posi [1, 1] = (i) => posicao [1] + 2*i;
+			posi [2, 0] = (i) => posicao [0] + 2;
+			posi [2, 1] = (i) => posicao [1] + i;
+			posi [3, 0] = (i) => posicao [0] + 1;
+			posi [3, 1] = (i) => posicao [1] + 2*i;
+
+
+			for (int i = -1; i < 2; i+=2) {
+				for(int a=0; a<4;a++){
+						if (posi [a, 0].Invoke (i) >= 0 && posi [a, 0].Invoke (i) < 8 && posi [a, 1].Invoke (i) >= 0 && posi [a, 1].Invoke (i) < 8) { 
+							if (tabuleiro [posi [a, 0].Invoke (i), posi [a, 1].Invoke (i)].GetType ().ToString ().Split ('.') [1] == "empty" || 
+							tabuleiro [posi [a, 0] (i), posi [a, 1] (i)].cor != this.cor) {
+								int[] temp = new int[2]{ posi [a, 0] (i), posi [a, 1] (i) };
+								listjogadas.Add (temp);
+							}
+						}
+					  }
+					}
+				
+			
+			return listjogadas.ToArray();
+		}
 	}
 
 	public class empty : peca
