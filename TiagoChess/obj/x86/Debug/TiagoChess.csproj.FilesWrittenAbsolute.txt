@@ -3,3 +3,8 @@
 /home/tiaguinho/Documentos/TiagoChess/TiagoChess/bin/Debug/TiagoChess.exe
 /home/tiaguinho/Documentos/TiagoChess/TiagoChess/obj/x86/Debug/TiagoChess.exe
 /home/tiaguinho/Documentos/TiagoChess/TiagoChess/obj/x86/Debug/TiagoChess.exe.mdb
+/home/tiaguinho/TiagoChess/TiagoChess/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/tiaguinho/TiagoChess/TiagoChess/bin/Debug/TiagoChess.exe.mdb
+/home/tiaguinho/TiagoChess/TiagoChess/bin/Debug/TiagoChess.exe
+/home/tiaguinho/TiagoChess/TiagoChess/obj/x86/Debug/TiagoChess.exe
+/home/tiaguinho/TiagoChess/TiagoChess/obj/x86/Debug/TiagoChess.exe.mdb
